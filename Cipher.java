@@ -1,5 +1,5 @@
 import org.w3c.dom.Text;
-
+import java.util.Scanner;
 import jdk.tools.jlink.builder.ImageBuilder;
 
 /*
@@ -9,8 +9,6 @@ Ceaser Cipher Encryptor/Decryptor
 The objective of this program is to use the Ceaser Cipher
 to encrypt and decrypt user input
 */
-
-import java.util.Scanner;
 
 public class Cipher{
 
