@@ -23,23 +23,24 @@ public static void main(String[] args)
 
         System.out.println("Please enter a key for encryption");
         int key=userIn.nextInt();
-        
-        
-        
-        System.out.println(Input);
-        
+               
+        System.out.println("To be encrypted: " +Input);
+        System.out.println("Encrypting using key of: " + key);
+        System.out.println("-----------------------");
+
         char[] inputConv = Input.toCharArray(); //converts input string to char array
 
         //using input converted to string, char array is shifted x number to encrypt using ascii
+        System.out.println("Input Encrypted:");
         for(char  c : inputConv) //c is key for shifting
         {
             c += key;
-            System.out.print(c);
-            
+            System.out.print(c);           
         }
         
         System.out.println();
-
+        System.out.println("-----------------------");
+        System.out.println("Input Decrypted:");
         for(char c : inputConv)
         {
             c +=key;
