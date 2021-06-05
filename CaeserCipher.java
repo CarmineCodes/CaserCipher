@@ -34,6 +34,7 @@ public class CaeserCipher extends Application {
     private Label lblHeader;
     private Label lblPlaintxt;
     private Label lblencryptedtxt;
+    private Label lblencdesc;
     private Label lblDescription;
              Label lblShift;
     private Label lblShiftVal;
@@ -67,17 +68,22 @@ public class CaeserCipher extends Application {
         lblShiftVal.setMinWidth(25);
         lblShiftVal.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
 
-        
+        //initiates label for encrypted text
+        lblencdesc = new Label("Here is your encrypted text:");
+        lblencdesc.setMinWidth(25);
+        lblencdesc.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
+
         //initiates labels
          lblPlaintxt= new Label ("Enter plain text to be encrypted");
          lblPlaintxt.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
-         lblencryptedtxt = new Label("");
+         lblencryptedtxt = new Label("encrypted");
          lblDescription = new Label("Plain text is encrypted using caser cipher and shift key input");
          
-         //creates encrypt button
+        //creates encrypt button
         btnEncrypt = new Button("Encrypt Text");
         btnEncrypt.setStyle("-fx-text-fill: white; -fx-background-color: tan; -fx-font-weight: bold;");
-        
+        btnEncrypt.setOnAction( e -> encryptText(e) );
+
         //sizing for text fields
         tfPlainTxt.setPrefWidth(300);
         tfShift.setPrefWidth(25);
@@ -87,7 +93,7 @@ public class CaeserCipher extends Application {
         vBoxInput.setPrefWidth(450);
         
         //create vbox for results
-        vBoxOutput = new VBox(50,lblDescription,lblShiftVal);
+        vBoxOutput = new VBox(50,lblDescription,lblShiftVal,lblencdesc,lblencryptedtxt);
         vBoxOutput.setPrefWidth(400);
         vBoxOutput.setPrefHeight(500);
         vBoxOutput.setPadding( new Insets(10) );
@@ -103,16 +109,22 @@ public class CaeserCipher extends Application {
         
         Scene scene = new Scene(grid, 1000, 500);
 
-        primaryStage.setTitle("Find Prime Factors");
+        primaryStage.setTitle("Caeser Cipher");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     
     }
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    /*
+    event handler that uses user input to encrypt text
+    uses user input of plain text and shift key to output encrypted text
+    */
+    public void encryptText(ActionEvent e)
+    {
+       
+       
+    }
     public static void main(String[] args) {
         launch(args);
     }
