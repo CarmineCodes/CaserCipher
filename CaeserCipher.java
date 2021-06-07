@@ -72,11 +72,14 @@ public class CaeserCipher extends Application {
         lblencdesc = new Label("Here is your encrypted text:");
         lblencdesc.setMinWidth(25);
         lblencdesc.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
-
+        
+        lblencryptedtxt = new Label(" ");
+        lblencryptedtxt.setMinWidth(100);
+        
         //initiates labels
          lblPlaintxt= new Label ("Enter plain text to be encrypted");
          lblPlaintxt.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
-         lblencryptedtxt = new Label("encrypted");
+         
          lblDescription = new Label("Plain text is encrypted using caser cipher and shift key input");
          
         //creates encrypt button
@@ -122,7 +125,20 @@ public class CaeserCipher extends Application {
     */
     public void encryptText(ActionEvent e)
     {
+       String plainText=tfPlainTxt.getText();
+       String key=tfShift.getText();
+       int keyInt =Integer.parseInt(key);
        
+        char[] inputConv = plainText.toCharArray(); //converts input string to char array
+        
+        for(char  c : inputConv) //c is key for shifting
+        {
+            c += keyInt;
+            
+            String encText = String.valueOf(c);
+            lblencryptedtxt.setText(encText);   
+          
+        }
        
     }
     public static void main(String[] args) {
