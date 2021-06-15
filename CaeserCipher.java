@@ -38,6 +38,7 @@ public class CaeserCipher extends Application {
     private Label lblDescription;
              Label lblShift;
     private Label lblShiftVal;
+    private Label lblShiftValDesc;
 
         
     //vbox for layout of items
@@ -68,6 +69,11 @@ public class CaeserCipher extends Application {
         lblShiftVal.setMinWidth(25);
         lblShiftVal.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
 
+        //initiates label to display shift key value label
+        lblShiftValDesc = new Label("Shift Value: ");
+        lblShiftValDesc.setMinWidth(25);
+        lblShiftValDesc.setStyle("-fx-font-family: 'Comic Sans MS'; -fx-font-size: 20px; -fx-text-fill: black; -fx-background-color:#FFF8DC); -fx-font-weight: bold;");
+        
         //initiates label for encrypted text
         lblencdesc = new Label("Here is your encrypted text:");
         lblencdesc.setMinWidth(25);
@@ -96,7 +102,7 @@ public class CaeserCipher extends Application {
         vBoxInput.setPrefWidth(450);
         
         //create vbox for results
-        vBoxOutput = new VBox(50,lblDescription,lblShiftVal,lblencdesc,lblencryptedtxt);
+        vBoxOutput = new VBox(50,lblDescription,lblShiftValDesc, lblShiftVal,lblencdesc,lblencryptedtxt);
         vBoxOutput.setPrefWidth(400);
         vBoxOutput.setPrefHeight(500);
         vBoxOutput.setPadding( new Insets(10) );
@@ -127,19 +133,27 @@ public class CaeserCipher extends Application {
     {
        String plainText=tfPlainTxt.getText();
        String key=tfShift.getText();
+       String encText="";
        int keyInt =Integer.parseInt(key);
+       char conv ='a';
        
+       lblShiftVal.setText(key);
         char[] inputConv = plainText.toCharArray(); //converts input string to char array
         
         for(char  c : inputConv) //c is key for shifting
         {
             c += keyInt;
             
-            String encText = String.valueOf(c);
-            lblencryptedtxt.setText(encText);   
+            conv=c;
+            encText+=c;
+            
+               
           
         }
-       
+          
+        lblencryptedtxt.setText(encText);
+
+        
     }
     public static void main(String[] args) {
         launch(args);
