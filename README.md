@@ -1,4 +1,4 @@
-# CaserCipher
+# CaeserCipher
 
 This program was created for the purpose of encrypting data using the caeser cipher. It was built in java and offers a graphical interface for the user to navigate to encrypt their information.
 
